@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Ofertas - Cidades e Categorias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" width="150" alt="">
+            </a>
+        </div>
+        <div class="redes">
+            <a href="https://www.instagram.com/grupopontomax/"><i class="fab fa-instagram" style="font-size: 20px;"></i></a>
+            <a href="https://www.facebook.com/lojaspontomax/?locale=pt_BR"><i class="fab fa-facebook" style="font-size: 20px;"></i></a>
+        </div>
+    </header>
+ 
+    <div class="content">
+        <div class="imagem">
+            <img src="selo.svg" width="200" alt=""> 
+        </div>
+        
+        <div class="content">
+            <div class="menu">
+                <h1>SELECIONE UMA CIDADE</h1>
+            <div class="buttons1">
+                <button id="balsas" class="btn city" onclick="selectCity('balsas')">BALSAS</button>
+                <button id="fortaleza" class="btn city" onclick="selectCity('fortaleza')">FORTALEZA DOS NOGUEIRAS</button>
+            </div>
+            </div>
+            
+            <div class="menu">
+                <h1>SELECIONE UMA CATEGORIA</h1>
+            <div class="buttons2">
+                <button id="supermercado" class="btn category" onclick="selectCategory('supermercado')">SUPERMERCADO</button>
+                <button id="bazar" class="btn category" onclick="selectCategory('bazar')">BAZAR</button>
+                <button id="eletro" class="btn category" onclick="selectCategory('eletro')">ELETRO</button>
+            </div>
+            </div>
+        </div>
+    
+            <div id="offers">
+                <div id="offer-images"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      let selectedCity = '';
+let selectedCategory = '';
+const HOURS_BEFORE_MIDNIGHT = 5; // Número de horas antes da meia-noite para exibir a oferta
+
+// Função para selecionar a cidade
+function selectCity(city) {
+    selectedCity = city;
+
+    // Remove a classe 'selected' dos outros botões de cidade
+    document.querySelectorAll('.city').forEach(button => {
+        button.classList.remove('selected');
+    });
+
+    // Adiciona a classe 'selected' ao botão clicado
+    document.getElementById(city).classList.add('selected');
+    
+    updateOffers();
+}
+
+// Função para selecionar a categoria
+function selectCategory(category) {
+    selectedCategory = category;
+
+    // Remove a classe 'selected' dos outros botões de categoria
+    document.querySelectorAll('.category').forEach(button => {
+        button.classList.remove('selected');
+    });
+
+    // Adiciona a classe 'selected' ao botão clicado
+    document.getElementById(category).classList.add('selected');
+
+    updateOffers();
+}
+
+// Função para atualizar as ofertas exibidas com base na cidade e categoria selecionadas
+function updateOffers() {
+    if (selectedCity && selectedCategory) {
+        const offerImages = document.getElementById('offer-images');
+        offerImages.innerHTML = '';
+
+        // Definindo as ofertas com datas de vigência (início e fim)
+        const offers = {
+            balsas: {
+                supermercado: [
+                    { url: 'https://i.imgur.com/1rQ2XNw.jpeg', startDate: '2024-09-25', endDate: '2024-09-26' },
+                    { url: 'https://example.com/balsas-supermercado2.jpg', startDate: '2024-09-23', endDate: '2024-09-30' }
+                ],
+                bazar: [
+                    { url: 'https://example.com/balsas-bazar1.jpg', startDate: '2024-09-21', endDate: '2024-09-28' },
+                    { url: 'https://example.com/balsas-bazar2.jpg', startDate: '2024-09-20', endDate: '2024-09-27' }
+                ],
+                eletro: [
+                    { url: 'https://example.com/balsas-eletro1.jpg', startDate: '2024-09-24', endDate: '2024-10-01' },
+                    { url: 'https://example.com/balsas-eletro2.jpg', startDate: '2024-09-25', endDate: '2024-10-03' }
+                ]
+            },
+            fortaleza: {
+                supermercado: [
+                    { url: 'https://example.com/fortaleza-supermercado1.jpg', startDate: '2024-09-24', endDate: '2024-09-26' },
+                    { url: 'https://example.com/fortaleza-supermercado2.jpg', startDate: '2024-09-25', endDate: '2024-09-29' }
+                ],
+                bazar: [
+                    { url: 'https://example.com/fortaleza-bazar1.jpg', startDate: '2024-09-23', endDate: '2024-09-30' },
+                    { url: 'https://example.com/fortaleza-bazar2.jpg', startDate: '2024-09-24', endDate: '2024-09-28' }
+                ],
+                eletro: [
+                    { url: 'https://example.com/fortaleza-eletro1.jpg', startDate: '2024-09-26', endDate: '2024-09-30' },
+                    { url: 'https://example.com/fortaleza-eletro2.jpg', startDate: '2024-09-24', endDate: '2024-09-29' }
+                ]
+            }
+        };
+
+        // Obtém a data e hora atuais no fuso horário local
+        const now = new Date();
+
+        // Adiciona as imagens de ofertas que estão dentro do período de vigência
+        const selectedOffers = offers[selectedCity][selectedCategory];
+        selectedOffers.forEach(offer => {
+            const offerStart = new Date(offer.startDate);
+            const offerEnd = new Date(offer.endDate);
+
+            // Define o horário para exibição 5 horas antes da meia-noite do dia anterior
+            const previousDayBeforeMidnight = new Date(offerStart);
+            previousDayBeforeMidnight.setDate(offerStart.getDate());
+            previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0); // 5 horas antes da meia-noite
+
+            // Verifica se a data e hora atuais estão dentro da vigência
+            if (now >= previousDayBeforeMidnight && now <= offerEnd) {
+                const img = document.createElement('img');
+                img.src = offer.url;
+                offerImages.appendChild(img);
+            }
+        });
+    }
+}
+
+    </script>
+</body>
+</html>

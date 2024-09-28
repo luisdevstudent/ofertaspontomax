@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(fundo-aniversário.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Roboto';
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    align-items: center;
+    background-color: white;
+    height: 50px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.redes {
+    margin-right: 15px;
+    margin: 10px;
+}
+
+a, i {
+    margin: 5px;
+    color: black;
+}
+
+i:hover {
+    color: red;
+}
+
+.imagem {
+    display: none;
+}
+
+h1 {
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.logo {
+    margin-right: auto;
+    margin-left: 12px;
+}
+
+.menu {
+    margin: 25px;
+}
+
+.content {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+}
+
+.buttons1 {
+    padding: 10px;
+}
+
+.buttons2 {
+    padding: 10px;
+}
+
+button {
+    height: 50px;
+    width: 220px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: red;
+    color: white;
+}
+
+.btn.selected {
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+}
+
+#offers {
+    margin-top: 30px;
+}
+
+#offer-images img {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url(fundo-móvel.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Roboto';
+    }
+
+    .imagem {
+        display: block;
+    }
+
+    .content {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        margin: 5px;
+    }
+}
