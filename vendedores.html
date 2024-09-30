@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos dos Vendedores</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    align-items: center;
+    height: 50px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0, 0.6);
+}
+
+.logo {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+button {
+    margin-top: 15px;
+    margin: 2px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: red;
+    color: white;
+}
+
+.contact-list {
+    display: none; /* Esconde por padrão */
+    transition: 0.5s;
+    transform: scale(1.1);
+    margin-top: 20px;
+    text-align: center; /* Centraliza texto dentro das listas */
+}
+
+
+a {
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    color: black;
+}
+
+button a:hover {
+    color: white;
+}
+
+.content {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.vendedor {
+    width: 150px;
+}
+
+
+.contato {
+    margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url(/fundo-móvel.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+    </style>
+
+</head>
+<body onclick="hideAll()">
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" width="180" alt="">
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>Vendedores</h1>
+    <div>
+        <button onclick="showSector('centro'); event.stopPropagation();">Centro</button>
+        <button onclick="showSector('contorno'); event.stopPropagation();">Contorno</button>
+        <button onclick="showSector('fortaleza'); event.stopPropagation();">Fortaleza dos Nogueiras</button>
+    </div>
+    
+    <div class="contato">
+        <div id="centro" class="contact-list" style="display:none;">
+            <button class="vendedor"><a href="https://wa.me/5599984503385">AMANDA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599999339395">CARLOS</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599999042566">EVA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599981903492">LAUDINEIA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599981466912">JOSÉ MARIA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599982766469">LOURIVAL</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599999339395">DAYLLANE</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599999537862">BETÂNIA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599984354678">THEYLON</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599982484976">PATRÍCIA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599988129444">GEIVAN</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599988291705">LUÍS PAULO</a></button><br>
+        </div>
+        <div id="contorno" class="contact-list" style="display:none;">
+           <button class="vendedor"> <a href="https://wa.me/5599984295040">LUANA</a></button><br>
+           <button class="vendedor"> <a href="https://wa.me/5599999890751">SILMA</a></button><br>
+           <button class="vendedor"> <a href="https://wa.me/5599988511259">NANDO</a></button><br>
+            
+        </div>
+        <div id="fortaleza" class="contact-list" style="display:none;">
+            <button class="vendedor"><a href="https://wa.me/5599984113278">NAYLA</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599981911513">DANNIEL</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599984065802">IAGO</a></button><br>
+            <button class="vendedor"><a href="https://wa.me/5599982063727">REIJANE</a></button><br>
+            
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function showSector(sector) {
+    const lists = document.querySelectorAll('.contact-list');
+    lists.forEach(list => list.style.display = 'none'); // Esconde todas as listas
+    document.getElementById(sector).style.display = 'block'; // Mostra a lista do setor selecionado
+}
+
+function hideAll() {
+    const lists = document.querySelectorAll('.contact-list');
+    lists.forEach(list => list.style.display = 'none'); // Esconde todas as listas ao clicar fora
+}
+
+    </script>
+</body>
+</html>

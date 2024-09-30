@@ -29,7 +29,12 @@ header {
 }
 
 a, i {
-    margin: 5px;
+    margin: 3px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+i {
     color: black;
 }
 
@@ -49,7 +54,7 @@ h1 {
 
 .logo {
     margin-right: auto;
-    margin-left: 12px;
+    margin-left: 5px;
 }
 
 .menu {
@@ -98,6 +103,18 @@ button:hover {
     width: 100%;
     max-width: 500px;
     margin: 10px 0;
+}
+
+.vende {
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    margin: 5px;
+    font-size: 11px;
+    color: white;
 }
 
 @media (max-width: 600px) {
