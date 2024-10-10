@@ -154,7 +154,7 @@ function updateOffers() {
         const selectedOffers = offers[selectedCity][selectedCategory];
         selectedOffers.forEach(offer => {
             const offerStart = new Date(offer.startDate);
-            const offerEnd = new Date(offer.endDate);
+            const offerEnd = new Date((offer.endDate)+1);
 
             // Define o horário para exibição 5 horas antes da meia-noite do dia anterior
             const previousDayBeforeMidnight = new Date(offerStart);
