@@ -161,6 +161,8 @@ function updateOffers() {
             previousDayBeforeMidnight.setDate(offerStart.getDate());
             previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0); // 5 horas antes da meia-noite
 
+            offerEnd.setHours(23, 59, 59);
+
             // Verifica se a data e hora atuais estão dentro da vigência
             if (now >= previousDayBeforeMidnight && now <= offerEnd) {
                 const img = document.createElement('img');
