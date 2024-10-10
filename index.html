@@ -152,24 +152,27 @@ function updateOffers() {
 
         // Adiciona as imagens de ofertas que estão dentro do período de vigência
         const selectedOffers = offers[selectedCity][selectedCategory];
-        selectedOffers.forEach(offer => {
-            const offerStart = new Date(offer.startDate);
-            const offerEnd = new Date(offer.endDate);
+        // Adiciona as imagens de ofertas que estão dentro do período de vigência
+selectedOffers.forEach(offer => {
+    const offerStart = new Date(offer.startDate);
+    const offerEnd = new Date(offer.endDate);
 
-            // Define o horário para exibição 5 horas antes da meia-noite do dia anterior
-            const previousDayBeforeMidnight = new Date(offerStart);
-            previousDayBeforeMidnight.setDate(offerStart.getDate());
-            previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0); // 5 horas antes da meia-noite
+    // Define o horário para exibição 5 horas antes da meia-noite do dia anterior
+    const previousDayBeforeMidnight = new Date(offerStart);
+    previousDayBeforeMidnight.setDate(offerStart.getDate());
+    previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0); // 5 horas antes da meia-noite
 
-            offerEnd.setHours(23, 59, 59);
+    // Modificar o fim da data para ser até o fim do dia (23:59:59)
+    offerEnd.setHours(23, 59, 59);
 
-            // Verifica se a data e hora atuais estão dentro da vigência
-            if (now >= previousDayBeforeMidnight && now <= offerEnd) {
-                const img = document.createElement('img');
-                img.src = offer.url;
-                offerImages.appendChild(img);
-            }
-        });
+    // Verifica se a data e hora atuais estão dentro da vigência
+    if (now >= previousDayBeforeMidnight && now <= offerEnd) {
+        const img = document.createElement('img');
+        img.src = offer.url;
+        offerImages.appendChild(img);
+    }
+});
+
     }
 }
 
