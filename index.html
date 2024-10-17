@@ -90,23 +90,15 @@ function selectCategory(category) {
 
 // Função para atualizar as ofertas exibidas com base na cidade e categoria selecionadas
 function updateOffers() {
-    if (selectedCity && selectedCategory) {
-        const offerImages = document.getElementById('offer-images');
-        offerImages.innerHTML = '';
-
-        // Definindo as ofertas com datas de vigência (início e fim)
-        const offers = {
+  if (selectedCity && selectedCategory) {
+    const offerImages = document.getElementById('offer-images');
+    offerImages.innerHTML = '';
+    const offers = {
+        
             balsas: {
                 supermercado: [
                     { url: 'https://i.imgur.com/gYkee2H.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' },
-                    { url: 'https://i.imgur.com/HKS9V6C.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' },
-                    { url: 'https://i.imgur.com/b7hjFMY.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/88sDPqE.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/Pp7rTtI.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/dgqdLAt.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/UIn8uev.jpeg', startDate: '2024-10-07', endDate: '2024-10-11' },
-                    { url: 'https://i.imgur.com/NTdXMja.jpeg', startDate: '2024-10-07', endDate: '2024-10-11' },
-                    { url: 'https://i.imgur.com/c7gfAMB.jpeg', startDate: '2024-10-04', endDate: '2024-10-12' }
+                    { url: 'https://i.imgur.com/HKS9V6C.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' }
                 ],
                 
                 bazar: [
@@ -117,28 +109,16 @@ function updateOffers() {
                 ],
                 
                 eletro: [
-                   { url: 'https://i.imgur.com/vTT5vJW.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                   { url: 'https://i.imgur.com/wSleO35.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                   { url: 'https://i.imgur.com/qVlNEjh.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                   { url: 'https://i.imgur.com/Gznt6X0.jpeg', startDate: '2024-10-10', endDate: '2024-10-13' },
-                   { url: 'https://i.imgur.com/CfAMEo5.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' },
-                   { url: 'https://i.imgur.com/6WDfZ0O.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' },
-                   { url: 'https://i.imgur.com/hmFb9kY.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' } 
+                   { url: 'https://i.imgur.com/GzoLzrT.jpeg', link: 'https://ofertaspontomax.netlify.app/vendedores', startDate: '2024-10-16', endDate: '2024-10-31' }
+                    
                 ]
             },
             fortaleza: {
                 supermercado: [
                     { url: 'https://i.imgur.com/gYkee2H.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' },
                     { url: 'https://i.imgur.com/HKS9V6C.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' },
-                    { url: 'https://i.imgur.com/Ps5JBXY.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' },
-                    { url: 'https://i.imgur.com/b7hjFMY.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/88sDPqE.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/D3iSLIN.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/naPsPcj.jpeg', startDate: '2024-10-11', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/UIn8uev.jpeg', startDate: '2024-10-07', endDate: '2024-10-11' },
-                    { url: 'https://i.imgur.com/NTdXMja.jpeg', startDate: '2024-10-07', endDate: '2024-10-11' },
-                    { url: 'https://i.imgur.com/GAYjwYC.jpeg', startDate: '2024-10-07', endDate: '2024-10-11' },
-                    { url: 'https://i.imgur.com/c7gfAMB.jpeg', startDate: '2024-10-04', endDate: '2024-10-12' }
+                    { url: 'https://i.imgur.com/Ps5JBXY.jpeg', startDate: '2024-10-14', endDate: '2024-10-18' }
+                    
                 ],
                 bazar: [
                     { url: 'https://i.imgur.com/7fLxWfN.jpeg', startDate: '2024-10-14', endDate: '2024-10-20' },
@@ -147,39 +127,30 @@ function updateOffers() {
                     { url: 'https://i.imgur.com/i9gRUcM.jpeg', startDate: '2024-10-01', endDate: '2024-10-30' },
                 ],
                 eletro: [
-                    { url: 'https://i.imgur.com/vTT5vJW.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/wSleO35.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/qVlNEjh.jpeg', startDate: '2024-10-13', endDate: '2024-10-14' },
-                    { url: 'https://i.imgur.com/Gznt6X0.jpeg', startDate: '2024-10-10', endDate: '2024-10-13' },
-                    { url: 'https://i.imgur.com/CfAMEo5.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' },
-                    { url: 'https://i.imgur.com/6WDfZ0O.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' },
-                    { url: 'https://i.imgur.com/hmFb9kY.jpeg', startDate: '2024-10-07', endDate: '2024-10-13' }
+                    { url: 'https://i.imgur.com/GzoLzrT.jpeg', link: 'https://ofertaspontomax.netlify.app/vendedores', startDate: '2024-10-16', endDate: '2024-10-31' }
                 ]
             }
         };
 
-        // Obtém a data e hora atuais no fuso horário local
         const now = new Date();
-
-        // Adiciona as imagens de ofertas que estão dentro do período de vigência
-        const selectedOffers = offers[selectedCity][selectedCategory];
-        selectedOffers.forEach(offer => {
-            const offerStart = new Date(offer.startDate);
-            const offerEnd = new Date(offer.endDate);
-
-            // Define o horário para exibição 5 horas antes da meia-noite do dia anterior
-            const previousDayBeforeMidnight = new Date(offerStart);
-            previousDayBeforeMidnight.setDate(offerStart.getDate());
-            previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0); // 5 horas antes da meia-noite
-
-            // Verifica se a data e hora atuais estão dentro da vigência
-            if (now >= previousDayBeforeMidnight && now <= offerEnd) {
-                const img = document.createElement('img');
-                img.src = offer.url;
-                offerImages.appendChild(img);
-            }
-        });
-    }
+    const selectedOffers = offers[selectedCity][selectedCategory];
+    selectedOffers.forEach(offer => {
+      const offerStart = new Date(offer.startDate);
+      const offerEnd = new Date(offer.endDate);
+      const previousDayBeforeMidnight = new Date(offerStart);
+      previousDayBeforeMidnight.setDate(offerStart.getDate());
+      previousDayBeforeMidnight.setHours(24 - HOURS_BEFORE_MIDNIGHT, 0, 0);
+      if (now >= previousDayBeforeMidnight && now <= offerEnd) {
+        const a = document.createElement('a');
+        a.href = offer.link;
+        a.target = '_blank';  // Abre o link em uma nova aba
+        const img = document.createElement('img');
+        img.src = offer.url;
+        a.appendChild(img);
+        offerImages.appendChild(a);
+      }
+    });
+  }
 }
 
     </script>
