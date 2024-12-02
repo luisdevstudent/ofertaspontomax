@@ -120,7 +120,7 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
-        background-image: url(fundo-móvel.svg);
+        background-image: url(fundo-móvel.jpg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
